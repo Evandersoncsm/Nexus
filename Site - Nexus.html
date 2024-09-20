@@ -1,0 +1,1914 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nexus Soluções & Tecnologia</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- AOS (Animate On Scroll) CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <!-- Swiper.js CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+  <!-- Lightbox2 CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+
+  <!-- Estilos CSS -->
+  <style>
+    /* Reset CSS Básico */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Variáveis de Cores para Facilitar Manutenção */
+    :root {
+      --primary-color: #4d94ff;
+      --secondary-color: #ffc107;
+      --dark-color: #333;
+      --light-color: #f5f5f5;
+      --header-bg: #000000;
+      --footer-bg: #343a40;
+      --text-color: #333;
+      --light-text: #fff;
+      --muted-text: #666;
+      --border-color: #ddd;
+      --hover-bg: #e2e6ea;
+      --button-hover-bg: #084298;
+      --newsletter-bg: #f8f9fa;
+      --whatsapp-bg: #25D366;
+      --whatsapp-hover-bg: #128C7E;
+    }
+
+    /* Fontes */
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      scroll-behavior: smooth;
+      background-color: var(--light-color);
+      padding-top: 60px;
+      /* Ajustado para a altura do header */
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Container */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      overflow: hidden;
+      padding: 15px;
+    }
+
+    /* Cabeçalho */
+    header {
+      background: var(--header-bg);
+      color: #4d94ff;
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease;
+    }
+
+    header .logo h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.1rem;
+      transition: font-size 0.3s ease;
+    }
+
+    /* Navegação */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-links li {
+      margin-left: 1rem;
+    }
+
+    .nav-links a {
+      color: var(--light-text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+      padding: 0.3rem 0;
+      font-size: 0.875rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links a i {
+      margin-right: 0.5rem;
+      font-size: 1rem;
+      transition: margin 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--secondary-color);
+    }
+
+    .nav-links a:hover i {
+      margin-right: 0.75rem;
+    }
+
+    /* Linha abaixo do texto do link */
+    .nav-links a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: var(--light-text);
+      transition: width .3s;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+    }
+
+    .hamburger .fa-bars {
+      font-size: 1.375rem;
+      color: var(--light-text);
+      transition: transform 0.3s ease;
+    }
+
+    .hamburger.active .fa-bars {
+      transform: rotate(90deg);
+    }
+
+    /* Home Section */
+    .home-section {
+      background: url('https://i.imgur.com/U6nNm8S.jpeg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .home-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgb(79, 149, 255);
+      transition: background 0.3s ease;
+    }
+
+    .home-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: var(--light-text);
+      max-width: 800px;
+      padding: 1rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .home-content h2 {
+      font-size: 50px;
+      margin-bottom: 20px;
+      font-family: 'Montserrat', sans-serif;
+      transition: font-size 0.3s ease;
+      color: #ffffff;
+    }
+
+    .home-content p {
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+      transition: font-size 0.3s ease;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.625rem 1.563rem;
+      background: var(--secondary-color);
+      color: var(--dark-color);
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+      transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+      font-size: 0.875rem;
+    }
+
+    .btn:hover {
+      background: var(--dark-color);
+      color: var(--secondary-color);
+      transform: scale(1.05);
+    }
+
+    /* Animações */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Seções */
+    section {
+      padding: 3rem 0;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      font-family: 'Montserrat', sans-serif;
+      position: relative;
+      color: var(--primary-color);
+    }
+
+    section h2::after {
+      content: '';
+      width: 60px;
+      height: 3px;
+      background: var(--primary-color);
+      position: absolute;
+      left: 50%;
+      bottom: -0.5rem;
+      transform: translateX(-50%);
+    }
+
+    /* Sobre Nós */
+    .about-section .about-content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 2.5rem;
+      animation: slideIn 1s ease-in-out;
+    }
+
+    .about-text {
+      flex: 1;
+      max-width: 600px;
+      text-align: left;
+    }
+
+    .about-text h3 {
+      margin-top: 1rem;
+      color: var(--primary-color);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.125rem;
+    }
+
+    .about-text p {
+      font-size: 0.875rem;
+      margin-bottom: 0.625rem;
+    }
+
+    .about-text ul {
+      list-style: disc inside;
+      margin-top: 0.625rem;
+      padding-left: 1.25rem;
+    }
+
+    .about-image img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about-image img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Serviços */
+    .services-section .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.25rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .service-card {
+      background: #f8f9fa;
+      padding: 1.25rem;
+      text-align: center;
+      border-radius: 10px;
+      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-card i {
+      font-size: 1.875rem;
+      color: var(--primary-color);
+      margin-bottom: 0.938rem;
+      transition: color 0.3s ease;
+    }
+
+    .service-card h3 {
+      margin-bottom: 0.625rem;
+      color: var(--primary-color);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.125rem;
+    }
+
+    .service-card p {
+      font-size: 0.875rem;
+      color: #555;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      background: var(--hover-bg);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Portfólio */
+    .portfolio-section .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.25rem;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .portfolio-info {
+      position: absolute;
+      bottom: 0;
+      background: rgba(13, 110, 253, 0.9);
+      color: var(--light-text);
+      width: 100%;
+      padding: 0.938rem;
+      text-align: center;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-info {
+      transform: translateY(0);
+    }
+
+    .portfolio-info h3 {
+      margin-bottom: 0.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+    }
+
+    .portfolio-info p {
+      font-size: 0.75rem;
+    }
+
+    /* Equipe */
+    .team-section .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      animation: fadeIn 1.4s ease-in-out;
+    }
+
+    .team-member {
+      background: #f8f9fa;
+      padding: 0.938rem;
+      text-align: center;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .team-member:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .team-member img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 0.625rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .team-member img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .team-member h3 {
+      margin-bottom: 0.312rem;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--primary-color);
+      font-size: 1rem;
+    }
+
+    .team-member p {
+      color: var(--muted-text);
+      font-size: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .social-links a {
+      color: var(--primary-color);
+      margin: 0 0.312rem;
+      font-size: 0.875rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--secondary-color);
+    }
+
+    /* Depoimentos */
+    .testimonials-section .swiper-container {
+      padding: 1.25rem 0;
+    }
+
+    .testimonials-section .testimonial {
+      background: #f1f1f1;
+      padding: 1.25rem;
+      border-radius: 10px;
+      position: relative;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testimonials-section .testimonial:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .testimonials-section .testimonial::before {
+      content: '"';
+      font-size: 1.875rem;
+      color: var(--primary-color);
+      position: absolute;
+      top: -0.625rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .testimonials-section .testimonial p {
+      font-style: italic;
+      margin-bottom: 0.938rem;
+      font-size: 0.875rem;
+      color: #555;
+    }
+
+    .testimonials-section .testimonial h4 {
+      font-weight: bold;
+      color: var(--primary-color);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+    }
+
+    .testimonials-section .testimonial p:last-of-type {
+      font-size: 0.75rem;
+    }
+
+    /* Blog */
+    .blog-section .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.25rem;
+      animation: fadeIn 1.6s ease-in-out;
+    }
+
+    .blog-post {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .blog-post:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .blog-post img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .blog-post img:hover {
+      transform: scale(1.05);
+    }
+
+    .blog-post-content {
+      padding: 0.938rem;
+    }
+
+    .blog-post-content h3 {
+      margin-bottom: 0.5rem;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--primary-color);
+      font-size: 1rem;
+    }
+
+    .blog-post-content p {
+      font-size: 0.75rem;
+      margin-bottom: 0.625rem;
+      color: #555;
+    }
+
+    .read-more {
+      text-decoration: none;
+      color: var(--primary-color);
+      font-weight: bold;
+      transition: color 0.3s ease;
+      font-size: 0.875rem;
+    }
+
+    .read-more:hover {
+      color: var(--secondary-color);
+    }
+
+    /* FAQ */
+    .faq-section .faq-grid {
+      max-width: 100%;
+      padding: 0 0.625rem;
+    }
+
+    .faq-section .faq-item {
+      margin-bottom: 0.938rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.625rem;
+      transition: background 0.3s ease;
+    }
+
+    .faq-section .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-section .faq-question {
+      font-weight: bold;
+      cursor: pointer;
+      position: relative;
+      padding-right: 1.25rem;
+      font-size: 0.875rem;
+      transition: color 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .faq-section .faq-question.active {
+      color: var(--primary-color);
+    }
+
+    .faq-section .faq-question::after {
+      content: '\f107';
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-section .faq-question.active::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    .faq-section .faq-answer {
+      display: none;
+      margin-top: 0.5rem;
+      color: #555;
+      font-size: 0.8125rem;
+      transition: max-height 0.3s ease, opacity 0.3s ease;
+      overflow: hidden;
+    }
+
+    /* Newsletter */
+    .newsletter-section {
+      background: var(--newsletter-bg);
+      padding: 1.875rem 0;
+      text-align: center;
+      animation: fadeIn 1.8s ease-in-out;
+    }
+
+    .newsletter-section h2 {
+      margin-bottom: 0.938rem;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--primary-color);
+      font-size: 1.25rem;
+    }
+
+    .newsletter-section p {
+      margin-bottom: 1.25rem;
+      color: #555;
+      font-size: 0.875rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.625rem;
+    }
+
+    .newsletter-form input[type="email"] {
+      padding: 0.625rem 0.938rem;
+      border: 2px solid var(--border-color);
+      border-radius: 5px;
+      width: 100%;
+      max-width: 250px;
+      transition: border 0.3s ease;
+      font-size: 0.875rem;
+    }
+
+    .newsletter-form input[type="email"]:focus {
+      border-color: var(--primary-color);
+      outline: none;
+    }
+
+    .newsletter-form button {
+      padding: 0.625rem 1.25rem;
+      background: var(--primary-color);
+      color: var(--light-text);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+      font-size: 0.875rem;
+    }
+
+    .newsletter-form button:hover {
+      background: var(--button-hover-bg);
+      transform: scale(1.05);
+    }
+
+    /* Contato */
+    .contact-section .contact-content {
+      display: flex;
+      flex-direction: row;
+      gap: 2.5rem;
+      animation: fadeIn 1.8s ease-in-out;
+    }
+
+    .contact-section form {
+      flex: 1;
+      background: var(--newsletter-bg);
+      padding: 1.25rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .contact-section form:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .form-group {
+      margin-bottom: 0.938rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.312rem;
+      font-weight: bold;
+      font-size: 0.875rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.625rem;
+      border: 2px solid var(--border-color);
+      border-radius: 5px;
+      transition: border 0.3s ease;
+      font-size: 0.875rem;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary-color);
+      outline: none;
+    }
+
+    .contact-section button {
+      background: var(--primary-color);
+      color: var(--light-text);
+      padding: 0.625rem 1.563rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+      font-size: 0.875rem;
+    }
+
+    .contact-section button:hover {
+      background: var(--button-hover-bg);
+      transform: scale(1.05);
+    }
+
+    .contact-info p {
+      margin-bottom: 0.625rem;
+      font-size: 0.875rem;
+      display: flex;
+      align-items: center;
+      color: #555;
+    }
+
+    .contact-info i {
+      margin-right: 0.5rem;
+      color: var(--primary-color);
+    }
+
+    .contact-info iframe {
+      width: 100%;
+      height: 400px;
+      border: 0;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-info iframe:hover {
+      transform: scale(1.02);
+    }
+
+    /* Trabalhe Conosco */
+    .careers-section {
+      background: #fff;
+      padding: 3rem 0;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .careers-section .careers-content {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      padding: 0 0.625rem;
+    }
+
+    .careers-section h2 {
+      margin-bottom: 0.938rem;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--primary-color);
+      font-size: 1.25rem;
+    }
+
+    .careers-section p {
+      margin-bottom: 1.25rem;
+      color: #555;
+      font-size: 0.875rem;
+    }
+
+    .careers-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+    }
+
+    .careers-form .form-group {
+      text-align: left;
+    }
+
+    .careers-form input,
+    .careers-form textarea,
+    .careers-form select {
+      width: 100%;
+      padding: 0.625rem;
+      border: 2px solid var(--border-color);
+      border-radius: 5px;
+      transition: border 0.3s ease;
+      font-size: 0.875rem;
+    }
+
+    .careers-form input:focus,
+    .careers-form textarea:focus,
+    .careers-form select:focus {
+      border-color: var(--primary-color);
+      outline: none;
+    }
+
+    .careers-form button {
+      align-self: center;
+      padding: 0.625rem 1.563rem;
+      background: var(--primary-color);
+      color: var(--light-text);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+      font-size: 0.875rem;
+    }
+
+    .careers-form button:hover {
+      background: var(--button-hover-bg);
+      transform: scale(1.05);
+    }
+
+    /* Rodapé */
+    footer {
+      background: var(--footer-bg);
+      color: var(--light-text);
+      padding: 1.875rem 0;
+      text-align: center;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-direction: row;
+      gap: 1.875rem;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 0.625rem;
+      transition: flex-direction 0.3s ease;
+    }
+
+    .footer-section {
+      flex: 1;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 0.938rem;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--secondary-color);
+      font-size: 1.125rem;
+    }
+
+    .footer-section p {
+      color: #ccc;
+      font-size: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-section ul li a {
+      color: var(--light-text);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 0.875rem;
+    }
+
+    .footer-section ul li a:hover {
+      color: var(--secondary-color);
+    }
+
+    .footer-icons a {
+      color: var(--light-text);
+      margin-right: 0.5rem;
+      font-size: 1.125rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-icons a:hover {
+      color: var(--secondary-color);
+    }
+
+    .newsletter-form-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+    }
+
+    .newsletter-form-footer input[type="email"] {
+      padding: 0.5rem 0.938rem;
+      border: 2px solid var(--border-color);
+      border-radius: 5px;
+      width: 100%;
+      transition: border 0.3s ease;
+      font-size: 0.875rem;
+    }
+
+    .newsletter-form-footer input[type="email"]:focus {
+      border-color: var(--secondary-color);
+      outline: none;
+    }
+
+    .newsletter-form-footer button {
+      padding: 0.5rem 1.25rem;
+      background: var(--secondary-color);
+      color: var(--dark-color);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+      font-size: 0.875rem;
+    }
+
+    .newsletter-form-footer button:hover {
+      background: #e0a800;
+      transform: scale(1.05);
+    }
+
+    .footer-bottom {
+      margin-top: 1.25rem;
+      border-top: 1px solid #555;
+      padding-top: 0.938rem;
+      font-size: 0.75rem;
+      color: #ccc;
+    }
+
+    /* ... CSS anterior ... */
+
+    /* Responsividade Aprimorada */
+    @media (max-width: 1024px) {
+      .footer-container {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav .nav-links {
+        position: fixed;
+        right: 0;
+        height: 100vh;
+        top: 0;
+        background: rgba(0, 0, 0, 0.767);
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        padding-top: 3.75rem;
+        z-index: 999;
+      }
+
+      nav .nav-links.open {
+        transform: translateX(0);
+      }
+
+      nav .nav-links li {
+        margin: 1.25rem 0;
+        text-align: center;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .home-content h2 {
+        font-size: 1.75rem;
+      }
+
+      .home-content p {
+        font-size: 0.875rem;
+      }
+
+      /* Ícone WhatsApp Fixo */
+      .whatsapp-fixo {
+        width: 50px;
+        height: 50px;
+      }
+
+      .whatsapp-fixo i {
+        font-size: 1.5rem;
+      }
+
+      /* Ajustes na Seção Sobre Nós */
+      .about-section .about-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+        padding: 0 0.625rem;
+      }
+
+      .about-text {
+        text-align: center;
+      }
+
+      .about-image img {
+        max-width: 100%;
+      }
+
+      /* Rodapé */
+      .footer-container {
+        flex-direction: column;
+        gap: 1.25rem;
+        padding: 0 1.25rem;
+      }
+
+      /* Melhorias na Tipografia para Mobile */
+      section h2 {
+        font-size: 1.25rem;
+      }
+
+      .nav-links a {
+        font-size: 1rem;
+      }
+
+      /* Ajustes na Seção Contato */
+      .contact-section .contact-content {
+        flex-direction: column;
+        align-items: stretch;
+        /* Alterado de 'center' para 'stretch' */
+        gap: 1.975rem;
+      }
+
+      .contact-section form {
+        width: 100%;
+        /* Garantir que o formulário ocupe toda a largura */
+        max-width: none;
+        /* Remover restrições de largura máxima */
+        padding: 1.25rem;
+        /* Opcional: Ajustar o padding conforme necessário */
+      }
+
+      .contact-section form .form-group input,
+      .contact-section form .form-group textarea {
+        width: 100%;
+        /* Garantir que os campos ocupem toda a largura */
+      }
+
+      .contact-info {
+        width: 100%;
+        max-width: 600px;
+      }
+
+      /* Tornar o iframe responsivo */
+      .contact-info iframe {
+        width: 100%;
+        height: 250px;
+      }
+
+      /* Tornar o formulário de contato mais largo */
+      /* Adicionais se necessário */
+    }
+
+    @media (max-width: 480px) {
+      .home-content h2 {
+        font-size: 1.375rem;
+      }
+
+      .home-content p {
+        font-size: 0.75rem;
+      }
+
+      /* Ajustes adicionais específicos para telas muito pequenas */
+      .footer-section h3 {
+        font-size: 1rem;
+      }
+
+      .footer-section p,
+      .footer-section ul li a,
+      .footer-section ul li a:hover {
+        font-size: 0.75rem;
+      }
+
+      .social-links a {
+        font-size: 1rem;
+      }
+
+      .newsletter-form-footer input[type="email"],
+      .newsletter-form-footer button {
+        font-size: 0.75rem;
+      }
+
+      /* Ajustes no Header */
+      header .logo h1 {
+        font-size: 1.25rem;
+      }
+
+      /* Ajustes nos Botões */
+      button,
+      .btn {
+        padding: 0.5rem 1.25rem;
+        font-size: 0.75rem;
+      }
+
+      /* Ajustes nos Formulários */
+      .contact-section form,
+      .careers-form {
+        padding: 0.938rem;
+      }
+
+      /* ... CSS posterior ... */
+    }
+
+    /* Estilos para o Carrossel na Home */
+    .swiper-home {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-home .swiper-slide {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .swiper-home .swiper-slide img {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      transition: filter 0.5s ease;
+    }
+
+    .swiper-home .swiper-slide:hover img {
+      filter: brightness(80%);
+    }
+
+    .swiper-home .home-content {
+      position: absolute;
+      z-index: 2;
+      text-align: center;
+      color: var(--light-text);
+      max-width: 800px;
+      padding: 1rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    /* Ícone WhatsApp Fixo */
+    .whatsapp-fixo {
+      position: fixed;
+      bottom: 1.25rem;
+      right: 1.25rem;
+      background-color: var(--whatsapp-bg);
+      color: var(--light-text);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .whatsapp-fixo:hover {
+      background-color: var(--whatsapp-hover-bg);
+      transform: scale(1.1);
+    }
+
+    .whatsapp-fixo i {
+      font-size: 1.875rem;
+    }
+
+    /* Scrollbar Customizada */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary-color);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--secondary-color);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Cabeçalho com Navegação -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <h1>Nexus Soluções & Tecnologia</h1>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="#sobre"><i class="fas fa-info-circle"></i> Sobre Nós</a></li>
+          <li><a href="#servicos"><i class="fas fa-concierge-bell"></i> Serviços</a></li>
+          <li><a href="#portfolio"><i class="fas fa-briefcase"></i> Portfólio</a></li>
+          <li><a href="#equipe"><i class="fas fa-users"></i> Equipe</a></li>
+          <li><a href="#depoimentos"><i class="fas fa-comments"></i> Depoimentos</a></li>
+          <li><a href="#blog"><i class="fas fa-blog"></i> Blog</a></li>
+          <li><a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
+          <li><a href="#newsletter"><i class="fas fa-envelope-open-text"></i> Newsletter</a></li>
+          <li><a href="#contato"><i class="fas fa-phone-alt"></i> Contato</a></li>
+          <li><a href="#trabalhe-conosco"><i class="fas fa-briefcase"></i> Trabalhe Conosco</a></li>
+        </ul>
+        <div class="hamburger" aria-label="Abrir Menu">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Home com Carrossel -->
+  <section id="home" class="home-section">
+    <!-- Carrossel Swiper -->
+    <div class="swiper-home swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="https://i.imgur.com/U6nNm8S.jpeg" alt="Slide 1">
+          <div class="home-content">
+            <h2>Transformamos Ideias em Soluções Tecnológicas</h2>
+            <p>Na Nexus Soluções & Tecnologia, desenvolvemos software personalizado e criamos websites modernos que
+              impulsionam o seu negócio.</p>
+            <a href="#contato" class="btn">Solicite um Orçamento</a>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://i.imgur.com/Bg3sti6.jpeg" alt="Slide 2">
+          <div class="home-content">
+            <h2>Inovação e Qualidade em Cada Projeto</h2>
+            <p>Nossa equipe está comprometida em entregar soluções que excedem as expectativas dos nossos clientes.</p>
+            <a href="#contato" class="btn">Fale Conosco</a>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://i.imgur.com/hwbvy1A.jpeg" alt="Slide 3">
+          <div class="home-content">
+            <h2>Expertise em Tecnologia de Ponta</h2>
+            <p>Utilizamos as mais recentes tecnologias para garantir que suas soluções sejam robustas e escaláveis.</p>
+            <a href="#contato" class="btn">Comece Agora</a>
+          </div>
+        </div>
+      </div>
+      <!-- Botões de Navegação do Swiper -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <!-- Páginação do Swiper -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <!-- Seção Sobre Nós -->
+  <section id="sobre" class="about-section" data-aos="fade-up">
+    <div class="container">
+      <h2>Sobre Nós</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Na Nexus Soluções & Tecnologia, somos apaixonados por inovação e tecnologia. Nossa equipe altamente
+            qualificada está dedicada a criar soluções digitais que atendem às necessidades específicas de cada cliente.
+          </p>
+          <h3>Missão</h3>
+          <p>Entregar soluções de software que impulsionem o sucesso dos nossos clientes.</p>
+          <h3>Visão</h3>
+          <p>Ser referência no mercado de desenvolvimento de software e websites.</p>
+          <h3>Valores</h3>
+          <ul>
+            <li>Inovação</li>
+            <li>Qualidade</li>
+            <li>Comprometimento</li>
+            <li>Transparência</li>
+          </ul>
+        </div>
+        <div class="about-image">
+          <img
+            src="https://www.sydle.com/blog/assets/post/fidelizacao-de-clientes-620c2402e45de05ff620a016/fidelizacao-de-clientes.jpg"
+            alt="Equipe Nexus Soluções & Tecnologia">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Serviços -->
+  <section id="servicos" class="services-section" data-aos="fade-up">
+    <div class="container">
+      <h2>Nossos Serviços</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <i class="fas fa-code"></i>
+          <h3>Desenvolvimento de Software</h3>
+          <p>Criação de aplicações personalizadas para atender às necessidades específicas do seu negócio.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-laptop-code"></i>
+          <h3>Criação de Websites</h3>
+          <p>Desenvolvimento de sites responsivos e otimizados para proporcionar a melhor experiência aos usuários.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-cogs"></i>
+          <h3>Consultoria em TI</h3>
+          <p>Aconselhamento estratégico para otimizar os recursos tecnológicos da sua empresa.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-tools"></i>
+          <h3>Manutenção e Suporte</h3>
+          <p>Serviços contínuos para garantir o perfeito funcionamento das suas soluções digitais.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-cloud"></i>
+          <h3>Serviços em Nuvem</h3>
+          <p>Implementação e gestão de soluções em nuvem para aumentar a eficiência e segurança.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-mobile-alt"></i>
+          <h3>Desenvolvimento Mobile</h3>
+          <p>Criação de aplicativos móveis para Android e iOS, garantindo acessibilidade e usabilidade.</p>
+        </div>
+        <!-- Novo Serviço: Tráfego Pago -->
+        <div class="service-card">
+          <i class="fas fa-bullhorn"></i>
+          <h3>Tráfego Pago</h3>
+          <p>Gerenciamento de campanhas de anúncios para aumentar sua visibilidade e conversões online.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Portfólio -->
+  <section id="portfolio" class="portfolio-section" data-aos="fade-up">
+    <div class="container">
+      <h2>Portfólio</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <a href="https://codepen.io/Evandersoncsm/full/ExBYbNy" data-lightbox="portfolio" data-title="Projeto A">
+            <img src="https://i.imgur.com/Q7PoGjP.png" alt="Projeto A">
+          </a>
+          <div class="portfolio-info">
+            <h3>Projeto A</h3>
+            <p>Desenvolvimento de um sistema de gestão empresarial.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <a href="https://via.placeholder.com/800x600" data-lightbox="portfolio" data-title="Projeto B">
+            <img src="https://i.imgur.com/PDdpJWI.jpeg" alt="Projeto B">
+          </a>
+          <div class="portfolio-info">
+            <h3>Projeto B</h3>
+            <p>Criação de um website para e-commerce.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <a href="https://via.placeholder.com/800x600" data-lightbox="portfolio" data-title="Projeto C">
+            <img src="https://www.bring.ag/wp-content/uploads/2021/03/trafego-organico-x-trafego-pago.jpg"
+              alt="Projeto C">
+          </a>
+          <div class="portfolio-info">
+            <h3>Projeto C</h3>
+            <p>Desenvolvimento de aplicativo móvel para gerenciamento de tarefas.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <a href="https://via.placeholder.com/800x600" data-lightbox="portfolio" data-title="Projeto D">
+            <img src="https://via.placeholder.com/400x300" alt="Projeto D">
+          </a>
+          <div class="portfolio-info">
+            <h3>Projeto D</h3>
+            <p>Implementação de soluções em nuvem para otimização de recursos.</p>
+          </div>
+        </div>
+        <!-- Adicione mais projetos conforme necessário -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Equipe -->
+  <section id="equipe" class="team-section" data-aos="fade-up">
+    <div class="container">
+      <h2>Conheça Nossa Equipe</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="https://i.imgur.com/LCmNhPP.jpeg" alt="Gabriel Correia - CEO & Fundador">
+          <h3>Gabriel Correia</h3>
+          <p>CEO & Fundador</p>
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Portfólio"><i class="fas fa-briefcase"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="team-member">
+          <img src="https://i.imgur.com/cKunxol.jpeg" alt="Evanderson Silva - Co-Fundador e Diretor de Desenvolvimento">
+          <h3>Evanderson Silva</h3>
+          <p>Co-Fundador e Diretor de Desenvolvimento</p>
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Portfólio"><i class="fas fa-briefcase"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="team-member">
+          <img src="https://i.imgur.com/J7kizHI.jpeg" alt="Cláudio Munhoz - CTO, Especialista em Marketing e Finanças">
+          <h3>Cláudio Munhoz</h3>
+          <p>CTO, Especialista em Marketing e Finanças</p>
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Portfólio"><i class="fas fa-briefcase"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="team-member">
+          <img src="https://i.imgur.com/bwdTfA9.jpeg" alt="Wagner Rodrigo - Supervisor e Desenvolvedor Back-end">
+          <h3>Wagner Rodrigo</h3>
+          <p>Supervisor e Desenvolvedor Back-end</p>
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Portfólio"><i class="fas fa-briefcase"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <!-- Adicione mais membros da equipe conforme necessário -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Depoimentos -->
+  <section id="depoimentos" class="testimonials-section" data-aos="fade-up">
+    <div class="container">
+      <h2>Depoimentos</h2>
+      <!-- Swiper -->
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="testimonial">
+              <p>"A Nexus Soluções & Tecnologia foi fundamental para o sucesso do nosso projeto. Equipe competente e
+                dedicada!"</p>
+              <h4>Maria Oliveira</h4>
+              <p>CEO da Empresa ABC</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="testimonial">
+              <p>"Profissionais altamente qualificados e um serviço de suporte excepcional."</p>
+              <h4>Pedro Santos</h4>
+              <p>Diretor de TI na XYZ Corp</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="testimonial">
+              <p>"A implementação das soluções em nuvem transformou nossa infraestrutura de TI."</p>
+              <h4>Joana Pereira</h4>
+              <p>Gerente de Operações na LMN Ltda</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="testimonial">
+              <p>"O desenvolvimento do nosso aplicativo móvel foi perfeito e superou nossas expectativas."</p>
+              <h4>Lucas Martins</h4>
+              <p>Co-fundador da StartUp Tech</p>
+            </div>
+          </div>
+        </div>
+        <!-- Botões de Navegação -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <!-- Páginação -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Blog -->
+  <section id="blog" class="blog-section" data-aos="fade-up">
+    <div class="container">
+      <h2>Blog</h2>
+      <div class="blog-grid">
+        <div class="blog-post">
+          <img src="https://blog.binario.cloud/wp-content/uploads/2020/06/cloud-computing-msc.jpg"
+            alt="Como a Tecnologia em Nuvem Pode Transformar Seu Negócio">
+          <div class="blog-post-content">
+            <h3>Como a Tecnologia em Nuvem Pode Transformar Seu Negócio</h3>
+            <p>A adoção de soluções em nuvem está revolucionando a forma como as empresas operam...</p>
+            <a href="https://blog.binario.cloud/5-fatos-essenciais-sobre-cloud-computing-para-a-sua-empresa/"
+              class="read-more">Leia Mais</a>
+          </div>
+        </div>
+        <div class="blog-post">
+          <img src="https://expressonaweb.com.br/img/blog/11-2.jpg"
+            alt="As Melhores Práticas para Desenvolvimento de Aplicativos Móveis">
+          <div class="blog-post-content">
+            <h3>As Melhores Práticas para Desenvolvimento de Aplicativos Móveis</h3>
+            <p>Desenvolver um aplicativo móvel de sucesso requer atenção a diversos fatores...</p>
+            <a href="https://expressonaweb.com.br/principais-estruturas-de-desenvolvimento-de-aplicativos-para-dispositivos-moveis"
+              class="read-more">Leia Mais</a>
+          </div>
+        </div>
+        <div class="blog-post">
+          <img
+            src="https://spread.com.br/wp-content/uploads/2022/06/Saiba-por-que-investir-em-uma-Consultoria-de-TI.jpg"
+            alt="Por Que Investir em Consultoria de TI?">
+          <div class="blog-post-content">
+            <h3>Por Que Investir em Consultoria de TI?</h3>
+            <p>Uma consultoria de TI pode trazer inúmeros benefícios para a sua empresa...</p>
+            <a href="https://spread.com.br/porque-investir-em-uma-consultoria-de-ti/" class="read-more">Leia Mais</a>
+          </div>
+        </div>
+        <!-- Adicione mais posts conforme necessário -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção FAQ -->
+  <section id="faq" class="faq-section" data-aos="fade-up">
+    <div class="container">
+      <h2>FAQ</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <div class="faq-question">Como iniciar um projeto com a Nexus Soluções & Tecnologia?</div>
+          <div class="faq-answer">
+            <p>Para iniciar um projeto, entre em contato conosco através do formulário de contato ou pelo telefone
+              fornecido. Nossa equipe irá agendar uma reunião para entender suas necessidades e propor uma solução
+              personalizada.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Quais são os prazos típicos para desenvolvimento de software?</div>
+          <div class="faq-answer">
+            <p>Os prazos variam conforme a complexidade do projeto. Após a análise das suas necessidades, forneceremos
+              um cronograma detalhado durante a fase de planejamento.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">A Nexus oferece suporte pós-desenvolvimento?</div>
+          <div class="faq-answer">
+            <p>Sim, oferecemos pacotes de manutenção e suporte contínuo para garantir que suas soluções funcionem
+              perfeitamente após o lançamento.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Como é o processo de pagamento?</div>
+          <div class="faq-answer">
+            <p>O processo de pagamento é flexível e pode ser adaptado às suas necessidades. Aceitamos transferências
+              bancárias, cartões de crédito e outros métodos acordados previamente.</p>
+          </div>
+        </div>
+        <!-- Adicione mais FAQs conforme necessário -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Newsletter -->
+  <section id="newsletter" class="newsletter-section" data-aos="fade-up">
+    <div class="container">
+      <h2>Assine Nossa Newsletter</h2>
+      <p>Receba as últimas novidades, dicas e atualizações diretamente no seu e-mail.</p>
+      <form class="newsletter-form" action="#" method="post">
+        <input type="email" name="email" placeholder="Seu e-mail" required>
+        <button type="submit">Assinar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Seção Contato -->
+  <section id="contato" class="contact-section" data-aos="fade-up">
+    <div class="container">
+      <h2>Contato</h2>
+      <div class="contact-content">
+        <form action="envio.php" method="post">
+          <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone">
+          </div>
+          <div class="form-group">
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn">Enviar</button>
+        </form>
+        <div class="contact-info">
+          <p><i class="fas fa-map-marker-alt"></i> Av. Brig. Faria Lima, 2369 - Conj 1102 - Jardim Paulistano, São Paulo
+            - SP, 01452-922</p>
+          <p><i class="fas fa-phone-alt"></i> (11) 1234-5678</p>
+          <p><i class="fas fa-envelope"></i> contato@nexustecnologia.com.br</p>
+          <!-- Mapa do Google Maps com endereço atualizado -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d746.9531937200373!2d-46.686850296933!3d-23.57709335316208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce57a79b9be4a7%3A0x27a0854885f3ca93!2sNexus%20Solu%C3%A7%C3%B5es%20%26%20Tecnologia!5e1!3m2!1spt-BR!2sbr!4v1726784613000!5m2!1spt-BR!2sbr"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Trabalhe Conosco -->
+  <section id="trabalhe-conosco" class="careers-section" data-aos="fade-up">
+    <div class="container">
+      <h2>Trabalhe Conosco</h2>
+      <div class="careers-content">
+        <p>Na Nexus Soluções & Tecnologia, valorizamos talentos que compartilham nossa paixão por inovação e excelência.
+          Se você deseja fazer parte de uma equipe dinâmica e contribuir para projetos desafiadores, preencha o
+          formulário abaixo.</p>
+        <form class="careers-form" action="trabalhe-conosco.php" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="nome-cv">Nome Completo:</label>
+            <input type="text" id="nome-cv" name="nome" placeholder="Digite seu nome completo" required>
+          </div>
+          <div class="form-group">
+            <label for="email-cv">E-mail:</label>
+            <input type="email" id="email-cv" name="email" placeholder="Digite seu e-mail" required>
+          </div>
+          <div class="form-group">
+            <label for="telefone-cv">Telefone:</label>
+            <input type="tel" id="telefone-cv" name="telefone" placeholder="(XX) XXXXX-XXXX">
+          </div>
+          <div class="form-group">
+            <label for="posicao">Posição Desejada:</label>
+            <select id="posicao" name="posicao" required>
+              <option value="">Selecione uma posição</option>
+              <option value="Desenvolvedor Front-end">Desenvolvedor Front-end</option>
+              <option value="Desenvolvedor Back-end">Desenvolvedor Back-end</option>
+              <option value="Designer UX/UI">Designer UX/UI</option>
+              <option value="Gerente de Projetos">Gerente de Projetos</option>
+              <option value="Analista de Dados">Analista de Dados</option>
+              <option value="Especialista em Tráfego Pago">Especialista em Tráfego Pago</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="curriculo">Currículo:</label>
+            <input type="file" id="curriculo" name="curriculo" accept=".pdf,.doc,.docx" required>
+          </div>
+          <div class="form-group">
+            <label for="portfolio">Link do Portfólio:</label>
+            <input type="url" id="portfolio" name="portfolio" placeholder="https://seuportfólio.com">
+          </div>
+          <div class="form-group">
+            <label for="mensagem-cv">Mensagem:</label>
+            <textarea id="mensagem-cv" name="mensagem" rows="5"
+              placeholder="Escreva uma breve mensagem sobre você e por que deseja trabalhar conosco."
+              required></textarea>
+          </div>
+          <button type="submit">Enviar Candidatura</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container footer-container">
+      <!-- Sobre a Empresa -->
+      <div class="footer-section about">
+        <h3>Sobre a Empresa</h3>
+        <p>
+          Na Nexus Soluções & Tecnologia, nos dedicamos a fornecer soluções inovadoras em desenvolvimento de software e
+          criação de websites, impulsionando o sucesso do seu negócio através da tecnologia.
+        </p>
+        <div class="footer-icons">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <!-- Links Rápidos -->
+      <div class="footer-section quick-links">
+        <h3>Links Rápidos</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#sobre">Sobre Nós</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="#trabalhe-conosco">Trabalhe Conosco</a></li>
+        </ul>
+      </div>
+
+      <!-- Serviços -->
+      <div class="footer-section services">
+        <h3>Serviços</h3>
+        <ul>
+          <li><a href="#servicos">Desenvolvimento de Software</a></li>
+          <li><a href="#servicos">Criação de Websites</a></li>
+          <li><a href="#servicos">Consultoria em TI</a></li>
+          <li><a href="#servicos">Manutenção e Suporte</a></li>
+          <li><a href="#servicos">Serviços em Nuvem</a></li>
+          <li><a href="#servicos">Desenvolvimento Mobile</a></li>
+          <li><a href="#servicos">Tráfego Pago</a></li>
+        </ul>
+      </div>
+
+      <!-- Contato -->
+      <div class="footer-section contact">
+        <h3>Contato</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Avenida Brig Faria Lima 2369 Conj 1102 Jardim Paulistano São Paulo SP
+          01452-922</p>
+        <p><i class="fas fa-phone-alt"></i> (11) 1234-5678</p>
+        <p><i class="fas fa-envelope"></i> contato@nexustecnologia.com.br</p>
+        <p><i class="fas fa-clock"></i> Segunda a Sexta: 9h - 18h</p>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-section newsletter">
+        <h3>Newsletter</h3>
+        <p>Assine nossa newsletter e receba as últimas novidades e ofertas diretamente no seu e-mail.</p>
+        <form class="newsletter-form-footer" action="#" method="post">
+          <input type="email" name="email" placeholder="Seu e-mail" required>
+          <button type="submit">Assinar</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Nexus Soluções & Tecnologia. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Ícone WhatsApp Fixo -->
+  <a href="https://wa.me/551112345678" class="whatsapp-fixo" target="_blank" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Scripts Externos -->
+  <!-- AOS (Animate On Scroll) JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <!-- Swiper.js JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Lightbox2 JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+  <!-- Script para Navegação Responsiva -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        hamburger.classList.toggle('active');
+      });
+
+      // Fechar o menu ao clicar em um link
+      const navLinksMobile = document.querySelectorAll('.nav-links a');
+
+      navLinksMobile.forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('active');
+        });
+      });
+
+      // FAQ Toggle
+      const faqQuestions = document.querySelectorAll('.faq-question');
+
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          question.classList.toggle('active');
+          const answer = question.nextElementSibling;
+          if (question.classList.contains('active')) {
+            answer.style.display = 'block';
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+            answer.style.opacity = '1';
+          } else {
+            answer.style.maxHeight = '0';
+            answer.style.opacity = '0';
+            setTimeout(() => {
+              answer.style.display = 'none';
+            }, 300);
+          }
+        });
+      });
+
+      // Inicializar AOS
+      AOS.init({
+        duration: 800,
+        easing: 'slide',
+        once: true
+      });
+
+      // Inicializar Swiper para Depoimentos
+      const swiperTestimonials = new Swiper('.testimonials-section .swiper-container', {
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        spaceBetween: 20,
+        slidesPerView: 1,
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+        },
+      });
+
+      // Inicializar Swiper para Carrossel na Home
+      const swiperHome = new Swiper('.swiper-home', {
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        effect: 'fade',
+        autoplay: {
+          delay: 7000,
+          disableOnInteraction: false,
+        },
+        fadeEffect: {
+          crossFade: true
+        },
+      });
+    });
+  </script>
+
+  <!-- Inicializar Lightbox -->
+  <script>
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true
+    })
+  </script>
+
+</body>
+
+</html>
